@@ -1,4 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+const morgan = require("morgan");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema");
 const root = require("./resolvers");
@@ -6,7 +11,16 @@ const root = require("./resolvers");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+// ลำดับ middleware มีความสำคัญ: security header → CORS → logger → body parser
+app.use(helmet());
+app.use(
+  cors({
+    origin: process.env.ALLOWED_ORIGIN,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  }),
+);
+app.use(morgan("dev"));
+app.use(express.json({ limit: "10kb" }));
 
 app.use(
   "/graphql",
@@ -117,13 +131,18 @@ app.put("/api/v1/students/:id", (req, res) => {
   const student = students.find((s) => s.id === id);
 
   if (!student) {
-    return res.status(404).json({ message: "ไม่พบข้อมูลนักศึกษา" });
+    return res.status(404).json({
+      error: { code: "NOT_FOUND", message: "ไม่พบข้อมูลนักศึกษา" },
+    });
   }
 
   if (!name || !major) {
-    return res
-      .status(400)
-      .json({ message: "กรุณาระบุ name และ major ให้ครบถ้วน" });
+    return res.status(400).json({
+      error: {
+        code: "VALIDATION_ERROR",
+        message: "กรุณาระบุ name และ major ให้ครบถ้วน",
+      },
+    });
   }
 
   student.name = name;
@@ -158,7 +177,9 @@ app.delete("/api/v1/students/:id", (req, res) => {
   const index = students.findIndex((s) => s.id === id);
 
   if (index === -1) {
-    return res.status(404).json({ message: "ไม่พบข้อมูลนักศึกษา" });
+    return res.status(404).json({
+      error: { code: "NOT_FOUND", message: "ไม่พบข้อมูลนักศึกษา" },
+    });
   }
 
   students.splice(index, 1);
@@ -166,6 +187,31 @@ app.delete("/api/v1/students/:id", (req, res) => {
   res.status(200).json({ message: "ลบข้อมูลสำเร็จ" });
 });
 
+// 404: ไม่พบ route ที่ร้องขอ (ต้องอยู่หลัง route ทั้งหมด)
+app.use((req, res) => {
+  res.status(404).json({
+    error: { code: "ROUTE_NOT_FOUND", message: "ไม่พบเส้นทางที่ร้องขอ" },
+  });
+});
+
+// Error-handling middleware (ต้องมีพารามิเตอร์ 4 ตัวเสมอ)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  // ใช้ err.status/err.statusCode หากมี (เช่น PayloadTooLargeError จาก express.json ที่ส่งมาเป็น 413)
+  const statusCode = err.status || err.statusCode || 500;
+  res.status(statusCode).json({
+    error: {
+      code: statusCode === 500 ? "INTERNAL_SERVER_ERROR" : err.type || "ERROR",
+      message:
+        statusCode === 500
+          ? "เกิดข้อผิดพลาดที่ไม่คาดคิดภายในระบบ"
+          : err.message,
+    },
+  });
+});
+
 app.listen(PORT, () => {
-  console.log(`Server กำลังทำงานที่ http://localhost:${PORT}`);
+  console.log(
+    `Server กำลังทำงานที่ http://localhost:${PORT} (${process.env.NODE_ENV})`,
+  );
 });

@@ -1,0 +1,557 @@
+{
+  "info": {
+    "_postman_id": "dce81b18-0239-4526-9bdd-cff190ee8f08",
+    "name": "postman-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56436330",
+    "_collection_link": "https://go.postman.co/collection/56436330-dce81b18-0239-4526-9bdd-cff190ee8f08?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "280"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"118-zo72y5G/Nr7khzMTfnwoBTQ/u4Y\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:50:38 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"สำเร็จ\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"สมชาย ใจดี\",\n            \"major\": \"วิทยาการคอมพิวเตอร์\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"สมหญิง รักเรียน\",\n            \"major\": \"เทคโนโลยีสารสนเทศ\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิศวกรรมซอฟต์แวร์\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิศวกรรมซอฟต์แวร์\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "202"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"ca-J/enwOIIFL83bK2nbl1WQuUTSZI\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:51:24 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"เพิ่มข้อมูลสำเร็จ\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"วิชัย ตั้งใจเรียน\",\n        \"major\": \"วิศวกรรมซอฟต์แวร์\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิศวกรรมซอฟต์แวร์\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students/3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students", "3"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิศวกรรมซอฟต์แวร์\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students", "3"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "169"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"a9-29w3DnG5HdJdDPgCV505GkcRpgw\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:51:53 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"สำเร็จ\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"วิชัย ตั้งใจเรียน\",\n        \"major\": \"วิศวกรรมซอฟต์แวร์\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students/3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students", "3"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students", "3"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "193"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"c1-IZ3cl0wH+rUb3ny0v09ggmJCrmg\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:52:02 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"แก้ไขข้อมูลสำเร็จ\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"วิชัย ตั้งใจเรียน\",\n        \"major\": \"วิทยาการข้อมูล\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students/3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students", "3"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students", "3"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "56"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"38-gJRwyDqDbVBR9yGO43X2sCBpVwg\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:52:52 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"ลบข้อมูลสำเร็จ\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3000/api/v1/students",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/students/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "students", "999"]
+        }
+      },
+      "response": [
+        {
+          "name": "http://localhost:3000/api/v1/students",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"วิชัย ตั้งใจเรียน\",\r\n  \"major\": \"วิทยาการข้อมูล\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/students/999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "v1", "students", "999"]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "71"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"47-xfFqGBV6/wDEyNj9M+WW0PLuavE\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 10 Jul 2026 11:53:03 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"ไม่พบข้อมูลนักศึกษา\"\n}"
+        }
+      ]
+    }
+  ]
+}
